@@ -1,16 +1,16 @@
 <template>
   <wv-tabbar fixed>
-    <wv-tabbar-item to="/meeting/index.html" :is-on="tab1">
+    <wv-tabbar-item :is-on="tab1" @click="topath('/meeting/index.html')">
         <img v-if="tab1" class="weui-tabbar__icon" src="../assets/img/people_fill.png" slot="icon">
         <img v-else class="weui-tabbar__icon" src="../assets/img/people.png" slot="icon">
         我的会议
     </wv-tabbar-item>
-    <wv-tabbar-item to="/meeting/create.html" :is-on="tab2">
+    <wv-tabbar-item :is-on="tab2" @click="topath('/meeting/create.html')">
       <img v-if="tab2" class="weui-tabbar__icon" src="../assets/img/addition_fill.png" slot="icon">
       <img v-else class="weui-tabbar__icon" src="../assets/img/addition.png" slot="icon">
       新建
     </wv-tabbar-item>
-    <wv-tabbar-item to="/news/index.html" :is-on="tab3">
+    <wv-tabbar-item :is-on="tab3" @click="topath('/news/index.html')">
       <span slot="icon" style="display: inline-block; position: relative;">
         <img v-if="tab3" class="weui-tabbar__icon" src="../assets/img/mail_fill.png" slot="icon">
         <img v-else class="weui-tabbar__icon" src="../assets/img/mail.png" slot="icon">
@@ -44,6 +44,9 @@
             } else {
               return;
             }
+          },
+          topath (path) {
+            location.assign(path);
           }
         },
         mounted () {
